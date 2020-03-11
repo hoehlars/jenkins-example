@@ -13,10 +13,9 @@ node {
             parallel 'static': {
                 bat "echo 'shell scripts to run static tests...'"
             },
-                    'unit': {
-                        bat "mvn test"
-                    },
-
+            'unit': {
+                bat "mvn test"
+            }
         }
         stage ('Deploy') {
             bat "echo 'shell scripts to deploy to server...'"
