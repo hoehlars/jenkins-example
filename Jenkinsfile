@@ -7,18 +7,16 @@ node {
             checkout scm
         }
         stage ('Build') {
-            bat "echo 'shell scripts to build project...'"
+            mvn package
         }
         stage ('Tests') {
             parallel 'static': {
                 bat "echo 'shell scripts to run static tests...'"
             },
                     'unit': {
-                        bat "echo 'shell scripts to run unit tests...'"
+                        mvn test
                     },
-                    'integration': {
-                        bat "echo 'shell scripts to run integration tests...'"
-                    }
+
         }
         stage ('Deploy') {
             bat "echo 'shell scripts to deploy to server...'"
