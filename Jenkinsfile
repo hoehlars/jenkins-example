@@ -7,7 +7,7 @@ node {
             checkout scm
         }
         stage ('Build') {
-            bat "mvn package"
+            bat "mvn clean package"
         }
         stage ('Tests') {
             parallel 'static': {
